@@ -1,0 +1,17 @@
+*{
+    margin: 0 auto;
+}
+body{
+    width: 990px;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+.BOX {
+    padding: 100px;
+    margin: 20px;
+    background-color: rgb(0, 179, 255);
+}
