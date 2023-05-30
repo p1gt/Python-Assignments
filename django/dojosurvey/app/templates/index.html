@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo survey</title>
+    <style>
+        *{
+            margin: auto;
+        }
+        .container{
+            border:1px solid black;
+            width: fit-content;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <form method="post" action="/result">
+        {%csrf_token%}
+        <div class="container">
+            <label>your name:</label>
+            <input type="text" name="name">
+            <br>
+            <label>dojo location:</label>
+            <select name="city">
+                <option>san jose</option>
+                <option>ramallah</option>
+            </select>
+            <br>
+            <label>favourite language:</label>
+            <select name="language">
+                <option>python</option>
+                <option>java</option>
+            </select>
+            <br>
+            <label>comment</label>
+            <textarea name="comment" cols="10" rows="1"></textarea>
+            <br>
+            <input type="submit" value="submit">
+        </div>
+    </form>
+</body>
+</html>
