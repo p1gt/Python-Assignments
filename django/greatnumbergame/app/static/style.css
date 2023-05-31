@@ -1,0 +1,23 @@
+*{
+    font-family: cursive;
+    text-align: center;
+}
+.correct{
+    width: 100px;
+    height: 100px;
+    background-color: green;
+}
+.low{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+}
+.high{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+}
+div{
+    text-align: center;
+    
+}
