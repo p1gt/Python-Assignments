@@ -1,0 +1,41 @@
+*{
+    font-family: cursive;
+    text-align: center;
+    margin: 10px auto;
+}
+.container{
+    width: 900px;
+}
+.counter{
+    border: 2px solid black;
+    display: inline;
+    padding: 5px;
+    width: 20px;
+}
+.options{
+    display: flex;
+    justify-content: center;
+}
+.location{
+    border: 2px solid black;
+    padding: 0 10px;
+    width: 180px;
+}
+.btn{
+    border: 0;
+    color: black;
+    background-color: grey;
+    border-radius: 50px;
+    padding: 7px;
+}
+.activites-label{
+    display: block;
+    text-align: start;
+}
+.activities{
+    border: solid black 2px;
+    width: 900px;
+    height: 100px;
+    overflow: scroll;
+    text-align-last: left;
+}

@@ -9,6 +9,7 @@ def index(request):
         "visits" : request.session['visits']
     }
     return render(request, 'index.html', data)
+
 def destroy(request):
     del request.session['visits']
     return redirect('/')
