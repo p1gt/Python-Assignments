@@ -6,4 +6,5 @@ def selectionSort(list):
                 min = j
         list[i], list[min] = list[min], list[i]
     return list
+
 print(selectionSort([5,4,8,6,4,1,7,9,2]))
