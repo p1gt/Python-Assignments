@@ -11,32 +11,52 @@
 <body>
     <div class="container">
         <label>your gold:</label>
-        <div class="counter">0</div>
+        <div class="counter">{{counter0}}</div>
         <div class="options">
             <div class="location">
+                <form action="/process" method="POST">
+                {%csrf_token%}
+                <input type="hidden" name="gold" value="farm">
                 <p><b>farm</b></p>
                 <p>(earns 10-20 gold)</p>
                 <input type="submit" value="find gold!" class="btn">
+                </form>
             </div>
             <div class="location">
+                <form action="/process" method="POST">
+                {%csrf_token%}
+                <input type="hidden" name="gold" value="cave">
                 <p><b>cave</b></p>
                 <p>(earns 10-20 gold)</p>
                 <input type="submit" value="find gold!" class="btn">
+                </form>
             </div>
             <div class="location">
+                <form action="/process" method="POST">
+                {%csrf_token%}
+                <input type="hidden" name="gold" value="house">
                 <p><b>house</b></p>
                 <p>(earns 10-20 gold)</p>
                 <input type="submit" value="find gold!" class="btn">
+                </form>
             </div>
             <div class="location">
+                <form action="/process" method="POST">
+                {%csrf_token%}
+                <input type="hidden" name="gold" value="quest">
                 <p><b>quest</b></p>
                 <p>(earns/takes 0-50 gold)</p>
                 <input type="submit" value="find gold!" class="btn">
+                </form>
             </div>
         </div>
         <label class="activites-label">activites:</label>
         <div class="activities">
-            
+            <ul>
+                {% for change in history %}
+                  <li>{{ change }}</li>
+                {% endfor %}
+            </ul>
         </div>
     </div>
 </body>
