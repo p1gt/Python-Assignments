@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dojos and Ninjas</title>
+</head>
+<body>
+  <h2>Add Dojo</h2>
+  <form action="/addDojo" method="POST">
+    {% csrf_token %}
+    <label for="dojoName">Name:</label>
+    <input type="text" id="dojoName" name="name" required>
+    <br>
+    <label for="dojoCity">City:</label>
+    <input type="text" id="dojoCity" name="city" required>
+    <br>
+    <label for="dojoState">State:</label>
+    <input type="text" id="dojoState" name="state" maxlength="2" required>
+    <br>
+    <input type="submit" value="Add Dojo">
+  </form>
+
+  <h2>Add Ninja</h2>
+  <form action="/addNinja" method="POST">
+    {% csrf_token %}
+    <label for="ninjaFirstName">First Name:</label>
+    <input type="text" id="ninjaFirstName" name="first_name" required>
+    <br>
+    <label for="ninjaLastName">Last Name:</label>
+    <input type="text" id="ninjaLastName" name="last_name" required>
+    <br>
+    <label for="dojoSelect">Dojo:</label>
+    <select id="dojoSelect" name="dojo_id" required>
+      {% for dojo in dojoInfo %}
+        <option value="{{ dojo.id }}">{{ dojo.name }}</option>
+      {% endfor %}
+    </select>
+    <br>
+    <input type="submit" value="Add Ninja">
+  </form>
+
+  <h2>Dojos and Ninjas</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Dojo Name</th>
+        <th>Ninja Count</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for dojo in dojoList %}
+        <tr>
+          <td>{{ dojo.name }}</td>
+          <td>Ninjas at the {{ dojo.name }} Dojo - {{ dojo.ninja_count }}</td>
+          <td>
+            <form action="/deleteDojo/{{ dojo.id }}" method="POST">
+              {% csrf_token %}
+              <input type="submit" value="Delete">
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>
