@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>books</title>
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'style.style' %}">
+</head>
+<body>
+    <h1>list of books</h1>
+    <div class="right">
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Action</th>
+            </tr>
+            {% for book in all_books  %}
+            <tr>
+                <td> {{ book.id }} </td>
+                <td> {{ book.title }}  </td>
+                <td><a href="/books/{{book.id}}">view</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+</body>
+</html>
