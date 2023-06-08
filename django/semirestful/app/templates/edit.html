@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'shows.css' %}">
+    <title>Edit Show</title>
+</head>
+<body>
+    <h1>Edit Show</h1>
+    <form action="/shows/{{ show.id }}/update" method="post">
+        {% csrf_token %}
+        <label>Title</label>
+        <input type="text" name="title" value="{{ show.title }}">
+        <br>
+        <label>Network</label>
+        <input type="text" name="network" value="{{ show.network }}">
+        <br>
+        <label>Release Date</label>
+        <input type="date" name="release_date" value="{{ show.release_date }}">
+        <br>
+        <label>Description</label>
+        <textarea name="desc" cols="30" rows="10">{{ show.desc }}</textarea>
+        <br>
+        <input type="submit" value="update">
+    </form>
+    <a href="http://127.0.0.1:8000">go back</a>
+</body>
+</html>

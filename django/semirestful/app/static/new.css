@@ -1,0 +1,17 @@
+*{
+    font-family: cursive;
+    margin: 0 auto;
+}
+body{
+    width: fit-content;
+}
+button{
+    background-color: black;
+    border-radius: 50px;
+    margin-top: 5px;
+    color: white;
+}
+a{
+    color: green;
+    text-decoration: none;
+}
