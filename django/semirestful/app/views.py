@@ -5,16 +5,17 @@ def root(request):
     return redirect('/shows')
 
 def shows(request):
-    shows = models.Shows.objects.all()
-    return render(request, 'shows.html', {'shows': shows})
+    data = {
+        'shows': models.Shows.objects.all()
+    }
+    return render(request, 'shows.html',data)
 
 def new(request):
     return render(request, 'new.html')
 
 def create(request):
-    models.create(request)
-    new_show = models.create(request)
-    return redirect(f'/shows/{new_show.id}')
+    newShow= models.create(request)
+    return redirect(f'/shows/{newShow.id}')
 
 def showID(request, id):
     show = Shows.objects.get(id=id)
