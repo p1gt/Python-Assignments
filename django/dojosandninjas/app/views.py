@@ -5,7 +5,7 @@ def root(request):
     data = {
         'dojoInfo': models.get_all_dojos(),
         'ninjaInfo' :models.get_all_ninja()
-      }
+    }
     return render(request,'root.html', data)
 
 def addDojo(request):

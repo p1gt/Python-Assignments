@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ author.first_name }} {{ author.last_name }}</title>
+</head>
+<body>
+    <h1>{{ author.first_name }} {{ author.last_name }}</h1>
+    <p>ID: {{ author.id }}</p>
+    <p>Notes: <br>{{ author.notes }}</p>
+    <p>Books:
+        {% for book in author.books.all %}
+            {{ book.title }}{% if not forloop.last %}, {%endif%}
+        {% endfor %}
+    </p>
+    <h2>Add Book</h2>
+    <form action="{% url 'add_book_to_author' author.id %}" method="POST">
+        {% csrf_token %}
+        <select name="book">
+            {% for book in all_books %}
+                <option value="{{ book.id }}">{{ book.title }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Add</button>
+    </form>
+</body>
+</html>

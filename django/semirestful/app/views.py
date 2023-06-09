@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from . import models
 from .models import Shows
+
 def root(request):
     return redirect('/shows')
 
