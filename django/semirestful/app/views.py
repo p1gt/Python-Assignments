@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from . import models
 from .models import Shows
+from django.contrib import messages
 
 def root(request):
     return redirect('/shows')
@@ -15,8 +16,18 @@ def new(request):
     return render(request, 'new.html')
 
 def create(request):
-    newShow= models.create(request)
-    return redirect(f'/shows/{newShow.id}')
+    errors = Shows.objects.basic_validator(request.POST)
+    if len(errors) > 0:
+        for key, value in errors.items():
+            messages.error(request,value)
+        return redirect('/shows/new')
+    if request.method == 'POST':
+        title = request.POST['title']
+        network = request.POST['network']
+        release_date = request.POST['release_date']
+        desc = request.POST['desc']
+        Shows.objects.create(title=title, network=network, release_date=release_date, desc=desc)
+    return redirect('/')
 
 def showID(request, id):
     show = Shows.objects.get(id=id)
