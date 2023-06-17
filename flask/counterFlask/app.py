@@ -3,15 +3,15 @@ app = Flask(__name__)
 app.secret_key = '123'
 
 @app.route('/')
-def mainPage():
+def counter():
     if 'visits' in session:
         session['visits'] += 1
     else:
         session['visits'] = 1
     return render_template('index.html', visits=session['visits'])
 
-@app.route('/destroy_session')
-def destroySession():
+@app.route('/reset')
+def reset():
     session.clear()
     return redirect('/')
 

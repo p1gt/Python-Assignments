@@ -1,4 +1,11 @@
-.container{
+* {
     text-align: center;
-    font-family: cursive;
+    font-family: fantasy;
+    text-decoration: none;
+    color: black;
+    background-color: white;
+}
+button {
+    border: 1px solid black;
+    border-radius: 50px;
 }
