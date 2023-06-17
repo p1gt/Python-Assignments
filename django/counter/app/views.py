@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 
-def index(request):
+def counter(request):
     if 'visits' in request.session:
         request.session['visits'] += 1
     else:
@@ -10,6 +10,6 @@ def index(request):
     }
     return render(request, 'index.html', data)
 
-def destroy(request):
+def reset(request):
     del request.session['visits']
     return redirect('/')

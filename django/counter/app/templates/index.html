@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>counter</title>
-    <style>
-        .container{
-            text-align: center;
-            font-family: cursive;
-        }
-    </style>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>counter</h1>
-        <p>{{visits}} times</p>
-        <a href="http://127.0.0.1:8000/destroy"><button>delete</button></a>
-    </div>
+    <h1>counter</h1>
+    <p>{{visits}}
+        {% if visits == 1 %}
+            visit
+        {% else %}
+            visits
+        {% endif %}
+    </p>
+    <button>
+        <a href="">refresh</a>
+    </button>
+    <button>
+        <a href="reset">reset</a>
+    </button>
 </body>
 </html>
